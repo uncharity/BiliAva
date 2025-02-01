@@ -10,6 +10,7 @@
 // @icon         https://www.bilibili.com/favicon.ico
 // @grant        none
 // @run-at       document-idle
+// @downloadURL  https://github.com/uncharity/BiliAva/raw/main/main.user.js
 // ==/UserScript==
 
 (function () {
