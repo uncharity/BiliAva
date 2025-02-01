@@ -19,11 +19,11 @@
     const observer = new MutationObserver((mutations) => {
       const spaceAvatar = document.querySelector(".space-avatar");
       if (spaceAvatar) {
-        console.log("找到头像元素");
+        // console.log("找到头像元素");
         observer.disconnect();
         if (!spaceAvatar.querySelector(".change-btn")) {
           spaceAvatar.addEventListener("click", function () {
-            console.log("点击了头像");
+            // console.log("点击了头像");
             const srcset = spaceAvatar.querySelector("source").srcset;
             window.open(srcset.split("@")[0], "_blank");
           });
@@ -43,21 +43,21 @@
       try {
         const shadowRoot = element.shadowRoot;
         if (!shadowRoot) {
-          console.error("shadowRoot 不存在");
+          // console.error("shadowRoot 不存在");
           return;
         }
 
         const checkElement = setInterval(function () {
           const avatar = shadowRoot.querySelector("a#avatar");
           if (avatar) {
-            console.log("找到 avatar 元素:", avatar);
+            // console.log("找到 avatar 元素:", avatar);
             const img = avatar.querySelector("img");
             if (img && img.src) {
               const cleanUrl = img.src.includes("@")
                 ? img.src.split("@")[0]
                 : img.src;
               avatar.href = cleanUrl;
-              console.log("成功更新头像链接:", cleanUrl);
+              // console.log("成功更新头像链接:", cleanUrl);
             }
             clearInterval(checkElement);
           }
@@ -65,15 +65,15 @@
 
         setTimeout(function () {
           clearInterval(checkElement);
-          console.log("检查超时，未找到元素");
+          // console.log("检查超时，未找到元素");
         }, 5000);
       } catch (error) {
-        console.error("处理显示状态时发生错误:", error);
+        // console.error("处理显示状态时发生错误:", error);
       }
     }
 
     function addFunctionalityToProfile(element) {
-      console.log("为 <bili-user-profile> 添加功能");
+      // console.log("为 <bili-user-profile> 添加功能");
 
       let wasBlock = element.style.display === "block";
 
@@ -113,7 +113,7 @@
               node.nodeType === Node.ELEMENT_NODE &&
               node.tagName === targetTagName
             ) {
-              console.log("检测到 <bili-user-profile> 被添加:", node);
+              // console.log("检测到 <bili-user-profile> 被添加:", node);
               addFunctionalityToProfile(node);
             }
           });
@@ -126,5 +126,5 @@
     });
   }
 
-  console.log("B站用户卡片头像原图链接脚本已加载");
+  // console.log("B站用户卡片头像原图链接脚本已加载");
 })();
